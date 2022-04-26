@@ -21,12 +21,15 @@ def make():
   sentence = data['sentence']
 
   doc = nlp(sentence)
-  options = {"compact": True, "bg": "#09a3d5",
-           "color": "white", "font": "Source Sans Pro"}
 
+  labels = []
+  for word in doc:
+    labels.append("<code>%s</code>: %s" %  word.tag_, spacy.explain(word.tag_))
+
+  options = {"compact": True}
   svg = displacy.render(doc, style="dep", options=options, jupyter=False)
 
-  return jsonify({"svg": svg})
+  return jsonify({"svg": svg, "labels": labels})
 
 if __name__ == '__main__':
     app.run(host="localhost", port=8123, debug=True)
