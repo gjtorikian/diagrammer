@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const generateBtn = document.getElementById("generateBtn");
   const sentenceInput = document.getElementById("sentence");
-  const labels = document.getElementById("labels");
+  const legend = document.getElementById("legend");
   const diagramtl = document.getElementById("diagram-tl");
 
   generateBtn.addEventListener("click", function () {
@@ -10,9 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
       sentence: sentence,
     }).then((data) => {
       diagramtl.innerHTML = data.svg;
-      labels.innerHTML = "";
+      legend.innerHTML = "";
       data.labels.forEach((element) => {
-        labels.innerHTML += element;
+        legend.innerHTML += ```
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class='text-sm font-medium text-gray-500'>${element[0]}</dt>
+        <dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>>${element[1]}</dd>
+        </div>
+        ```;
       });
     });
   });

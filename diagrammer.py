@@ -24,7 +24,7 @@ def make():
 
   labels = []
   for word in doc:
-    labels.append("<dt>%s</dt><dd>%s</dd>" %  (word.tag_, spacy.explain(word.tag_)))
+    labels.append((word.tag_, spacy.explain(word.tag_)))
 
   options = {"compact": True}
   svg = displacy.render(doc, style="dep", options=options, jupyter=False)

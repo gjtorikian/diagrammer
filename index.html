@@ -9,16 +9,14 @@
   </head>
   <body class="bg-slate-100">
     <div>
-      <div
-        class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
-      >
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <h2
-          class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+          class="text-3xl font-extrabold text-center tracking-tight text-gray-900 sm:text-4xl"
         >
-          <span class="block">Enter a sentence,</span>
-          <span class="block">get a diagram.</span>
+          <span class="text-center block">Enter a sentence,</span>
+          <span class="text-center block">get a diagram.</span>
         </h2>
-        <div class="mt-8 flex justify-center">
+        <div class="mt-8 flex text-center justify-center">
           <div>
             <div
               class="mt-1 border-b border-gray-300 focus-within:border-indigo-600"
@@ -44,8 +42,26 @@
         <div id="diagram-tl" class="pt-10 mx-auto mt-10 flex justify-center">
           <img src="default.svg" />
         </div>
-        <div class="pt-10 mx-auto flex justify-center">
-          <dl id="labels"></dl>
+        <div class="pt-10 mx-auto flex">
+          <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6">
+              <h3 class="text-lg leading-6 font-medium text-gray-900">
+                Legend
+              </h3>
+            </div>
+            <div class="border-t border-gray-200">
+              <dl id="legend">
+                <div
+                  class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                >
+                  <dt class="text-sm font-medium text-gray-500">Full name</dt>
+                  <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    Margot Foster
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
         </div>
       </div>
     </div>
