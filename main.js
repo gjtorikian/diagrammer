@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   generateBtn.addEventListener("click", function () {
     let sentence = document.getElementById("sentence").value;
-    postData("http://0.0.0.0:8123/make", { sentence: sentence }).then(
-      (data) => {
-        let diagramtl = document.getElementById("diagram-tl");
-        diagramtl.innerHTML = data.svg;
-      }
-    );
+    postData("https://nothingherebut.me/diagrammer/make", {
+      sentence: sentence,
+    }).then((data) => {
+      let diagramtl = document.getElementById("diagram-tl");
+      diagramtl.innerHTML = data.svg;
+    });
   });
 });
 
