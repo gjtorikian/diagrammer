@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   const generateBtn = document.getElementById("generateBtn");
+  const sentenceInput = document.getElementById("sentence");
+  let diagramtl = document.getElementById("diagram-tl");
 
   generateBtn.addEventListener("click", function () {
-    let sentence = document.getElementById("sentence").value;
+    let sentence = sentenceInput.value;
     postData("https://nothingherebut.me/diagrammer/make", {
       sentence: sentence,
     }).then((data) => {
-      let diagramtl = document.getElementById("diagram-tl");
       diagramtl.innerHTML = data.svg;
     });
   });

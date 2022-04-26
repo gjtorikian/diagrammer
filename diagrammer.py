@@ -21,7 +21,10 @@ def make():
   sentence = data['sentence']
 
   doc = nlp(sentence)
-  svg = displacy.render(doc, style="dep", jupyter=False)
+  options = {"compact": True, "bg": "#09a3d5",
+           "color": "white", "font": "Source Sans Pro"}
+
+  svg = displacy.render(doc, style="dep", options=options, jupyter=False)
 
   return jsonify({"svg": svg})
 
