@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const legend = document.getElementById("legend");
   const diagramtl = document.getElementById("diagram-tl");
 
+  const heading = `<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">`;
+  const dt = `<dt class='text-sm font-medium text-gray-500'>`;
+  const dd = `<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>`;
+
   generateBtn.addEventListener("click", function () {
     let sentence = sentenceInput.value;
     postData("https://nothingherebut.me/diagrammer/make", {
@@ -12,12 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       diagramtl.innerHTML = data.svg;
       legend.innerHTML = "";
       data.labels.forEach((element) => {
-        legend.innerHTML += ```
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class='text-sm font-medium text-gray-500'>${element[0]}</dt>
-        <dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>>${element[1]}</dd>
-        </div>
-        ```;
+        legend.innerHTML += `${heading}${dt}${element[0]}</dt>${dd}${element[1]}</dd></div>`;
       });
     });
   });
